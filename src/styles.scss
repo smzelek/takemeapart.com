@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 html, body {
     height:100%;
     min-height: 100%;
@@ -12,17 +16,43 @@ html, body {
 .container {
     display:flex;
     flex-direction: row;
+    justify-content: center;
     height:100%;
     .server {
-        width: 25%;
+        width: 320px;
         border: 1px solid blue;
     }
     .page {
-        width:50%;
+        width: 640px;
         background: #f4f6f7;
         height:100%;
         display:flex;
         flex-direction: column;
+
+        span.keyword {
+            font-weight: bold;
+        }
+
+        ul {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            list-style: inside;
+            padding: 0;
+        }
+        code {
+            font-weight: bold;
+            font-family: inherit;
+            &.html {
+                color:#E65027;
+            }
+            &.css {
+                color:#1572B6;
+            }
+            &.js {
+                color:#E5A228;
+            }
+        }
+
         .header {
             text-align: center;
             position: relative;
@@ -69,23 +99,30 @@ html, body {
                 position: relative;
 
                 input {
-                    width: 75%;
+                    width: 243px;
+                    height: 26px;
                 }
                 .icon-row {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    overflow: hidden;
+                    // display: flex;
+                    // flex-direction: row;
+                    // justify-content: center;
+                    // overflow: hidden;
+                    // margin: 0 auto;
+                    text-align: center;
 
                     img {
                         width:35px;
                         margin: 10px;
-                        height:60px;
+                        height: unset;
+                        // height:60px;
                         // height:10px;
                     }
                 }
 
-                img {max-width:100%; height:auto}
+                img {
+                    width: 243px;
+                    height: 28px;
+                }
 
                 h2 {
                     margin:0;
@@ -98,29 +135,36 @@ html, body {
                     font-family: 'Open Sans', sans-serif;
                 }
                 button.next {
-                    // float:right;
-                    width: 40px;
-                    height: 40px;
+                    width: 50px;
+                    height: 30px;
                     padding: 0px;
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
+                    float: right;
+                    margin-top:10px;
                     margin-right: 20px;
                     margin-bottom: 5px;
                     
                     font-size: 40px;
-                    line-height: 40px;
-                    color:#f00606;
-                    background:transparent;
-                    border-radius: 20%;
-                    border:none;
+                    line-height: 30px;
+                    color:white;
+                    background:red;
+                
+                    border-radius:3px;
+                    border: none;
                     outline:none;
+                    i {
+                        margin-top:-5px;
+                    }
+                    &:hover {
+                        background: darken($color: red, $amount: 10);
+                        color: darken(white, 10);
+                        cursor: pointer;
+                    }
                 }
             }
         }
     }
     .developer {
-        width:25%;
+        width: 320px;
         border: 1px solid red;
         // padding-top: 10%;
         margin-top: 5%;
