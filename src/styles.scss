@@ -13,6 +13,9 @@ img {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+p {
+    font-family: 'Open Sans', sans-serif;
+}
 
 html, body {
     height:100%;
@@ -107,9 +110,7 @@ html, body {
                     color: #444444;
                 }
             }
-            p {
-                font-family: 'Open Sans', sans-serif;
-            }
+            
             button.reload {
                 position: absolute;
                 top:0;
@@ -131,6 +132,9 @@ html, body {
         #offlineContent {
             img {
                 width: 100%;
+            }
+            p {
+                padding-left: 22px;
             }
         }
         #content {
