@@ -8,18 +8,23 @@
 
 <body>
     <div class="container">
-        <div class="server">
-
+        <div id="server" class="invisible">
+            <button id="serverPower"></button>
+            <img src="src/server.png">
+            <h1>a server</h1>
         </div>
-        <div class="page">
+        <div id="page">
             <div class="header">
-                <h1>Take Me Apart!</h1>
+                <h1 id="title">Take Me Apart!</h1>
                 <p></p>
                 <button class="reload">
                     <i class="fa fa-refresh"></i>
                 </button>
             </div>
-            <div class="content">
+            <div id="offlineContent" class="hidden">
+                <img src="src/offline.png">
+            </div>
+            <div id="content">
                 <div class="content-block" id="part1">
                     <h2>Who makes websites?</h2>
                     <p>
@@ -29,8 +34,8 @@
                         <br>
                         <br> What's your name?
                     </p>
-                    <input />
-                    <button id="next1" class="next">
+                    <input type="text" />
+                    <button type="text" id="next1" class="next">
                         <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -50,13 +55,13 @@
                     </div>
                     <ul>
                         <li>
-                            <code class="html">HTML</code> says what is on a website.
+                            <code class="html">HTML</code> is the pieces of a website.
                         </li>
                         <li>
-                            <code class="css">CSS</code> changes how it looks.
+                            <code class="css">CSS</code> changes how they look.
                         </li>
                         <li>
-                            <code class="js">JavaScript</code> makes it do things.
+                            <code class="js">JavaScript</code> makes them do things.
                         </li>
                     </ul>
 
@@ -90,11 +95,20 @@
             </div>
 
         </div>
-        <div class="developer">
+        <div id="developer" class="invisible">
             <div class="header">
                 <h1>Web Developer Toolkit</h1>
-                <p>property of {name}</p>
+                <p id="owner">property of {name}</p>
             </div>
+            <fieldset class="codeBucket html">
+                <legend>HTML</legend>
+              </fieldset>
+              <fieldset class="codeBucket css">
+                <legend>CSS</legend>
+              </fieldset>
+              <fieldset class="codeBucket js">
+                <legend>JS</legend>
+              </fieldset>
         </div>
     </div>
 </body>
