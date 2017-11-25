@@ -14,90 +14,112 @@
             <h1>a server</h1>
         </div>
         <div id="page">
-            <div class="header">
-                <h1 id="title">Take Me Apart!</h1>
-                <p></p>
-                <button class="reload">
-                    <i class="fa fa-refresh"></i>
-                </button>
-            </div>
             <div id="offlineContent" class="hidden">
                 <img src="src/offline.png">
-                <p>
+                <p class="open-sans">
                     Oops, server turned off. Wouldn't it be great if you could still view this website?
-                    <br><br> 
-                    If a website is set up properly, your browser will save it. That means you can still use it even if the
-                    server turns off or your internet goes out. Cool!
-                    <br><br>
-                    Learn more at <a href="http://offlinefirst.org/" target="_blank">http://offlinefirst.org/</a>
+                    <br>
+                    <br> If a website is set up properly, your browser will save it. That means you can still use it even if
+                    the server turns off or your internet goes out. Cool!
+                    <br>
+                    <br> Learn more at
+                    <a href="http://offlinefirst.org/" target="_blank">http://offlinefirst.org/</a>
                 </p>
             </div>
             <div id="content">
-                <div class="content-block" id="part1">
-                    <h2>Who makes websites?</h2>
-                    <p>
-                        Anyone can make a website! All you need is a computer. You could even use your phone. If you learn how to make websites,
-                        that makes you a
-                        <span class="keyword">Web Developer</span>.
+                <div class="header">
+                    <h1 class="carter-one red">Take Me Apart!
+                        <div class="bit-tray">
+                            <span class="bit css">2</span>
+                            <span class="bit html">1</span>
+                        </div>
+                    </h1>
+                    <button id="reload">
+                        <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+                <div class="body">
+                    <div class="content-block" id="part1">
+                        <h2 class="patua-one red">Who makes websites?
+                            <div class="bit-tray">
+                                <span class="bit css">2</span>
+                                <span class="bit html">1</span>
+                            </div>
+                        </h2>
                         <br>
-                        <br> What's your name?
-                    </p>
-                    <input type="text" />
-                    <button type="text" id="next1" class="next">
-                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <!-- -->
-                <div class="content-block hidden" id="part2">
-                    <h2>How do you make one?</h2>
-                    <p>
-                        You write 3 things to make websites.
-                        <code class="html">HTML</code>,
-                        <code class="css">CSS</code>, and
-                        <code class="js">JavaScript</code> files.
-                    </p>
-                    <div class="icon-row">
-                        <img class="icon" src="src/html.png">
-                        <img class="icon" src="src/css.png">
-                        <img class="icon" src="src/js.png">
+                        <p class="open-sans">
+                            Anyone can make a website! All you need is a computer. You could even use your phone. If you learn how to make websites,
+                            that makes you a
+                        </p>
+                        <span class="bold open-sans">Web Developer</span>.
+                        <br>
+                        <br>
+                        <p class="open-sans">
+                            What's your name?
+                        </p>
+
+                        <input type="text" id="nameInput" />
+                        <button id="next1" class="red-background white rounded darken-on-hover next">
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </button>
                     </div>
-                    <ul>
-                        <li>
-                            <code class="html">HTML</code> is the pieces of a website.
-                        </li>
-                        <li>
-                            <code class="css">CSS</code> changes how they look.
-                        </li>
-                        <li>
-                            <code class="js">JavaScript</code> makes them do things.
-                        </li>
-                    </ul>
+                    <!-- -->
+                    <div class="content-block hidden" id="part2">
+                        <h2 class="patua-one red">How do you make one?</h2>
+                        <br>
+                        <p class="open-sans">
+                            You write 3 things to make websites.
+                            <code class="bold open-sans orange">HTML</code>,
+                            <code class="bold open-sans blue">CSS</code>, and
+                            <code class="bold open-sans yellow">JavaScript</code> files.
+                        </p>
+                        <br>
+                        <div class="icon-row">
+                            <img class="icon" src="src/html.png">
+                            <img class="icon" src="src/css.png">
+                            <img class="icon" src="src/js.png">
+                        </div>
+                        <ul>
+                            <li class="open-sans">
+                                <code class="bold open-sans orange">HTML</code> is the pieces of a website.
+                            </li>
+                            <li class="open-sans">
+                                <code class="bold open-sans blue">CSS</code> changes how they look.
+                            </li>
+                            <li class="open-sans">
+                                <code class="bold open-sans yellow">JavaScript</code> makes them do things.
+                            </li>
+                        </ul>
 
-                    <button id="next2" class="next">
-                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <!-- -->
-                <div class="content-block hidden" id="part3">
-                    <h2>How do you share them?</h2>
-                    <p>
-                        When it's done, you can put your website on a
-                        <span class="keyword">server</span> and give it an
-                        <span class="keyword">address</span>. Just like your home address helps people find your house, this is how other people
-                        can find your website.
-                    </p>
-                    <img src="src/address.png">
-                    <button id="next3" class="next">
-                        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <!-- -->
-                <div class="content-block hidden" id="part4">
-                    <h2>Let's have some fun!</h2>
-                    <p>
-                        Why don't you try taking this website apart to see what's really going on here?
-                    </p>
+                        <button id="next2" class="red-background white rounded darken-on-hover next">
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!-- -->
+                    <div class="content-block hidden" id="part3">
+                        <h2 class="patua-one red">How do you share them?</h2>
+                        <br>
+                        <p class="open-sans">
+                            When it's done, you can put your website on a
+                            <span class="bold">server</span> and give it an
+                            <span class="bold">address</span>. Just like your home address helps people find your house, this is how other people
+                            can find your website.
+                        </p>
+                        <br>
+                        <img src="src/address.png">
+                        <button id="next3" class="red-background white rounded darken-on-hover next">
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!-- -->
+                    <div class="content-block hidden" id="part4">
+                        <h2 class="patua-one red">Let's have some fun!</h2>
+                        <br>
+                        <p class="open-sans">
+                            Why don't you try taking this website apart to see what's really going on here?
+                        </p>
 
+                    </div>
                 </div>
                 <!-- -->
             </div>
