@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <link href="https://fonts.googleapis.com/css?family=Carter+One|Open+Sans|Patua+One|Press+Start+2P" rel="stylesheet">
     <script src="https://use.fontawesome.com/5680242bcb.js"></script>
 </head>
-
 <body>
     <div class="container">
-        <div id="server" class="invisible">
-            <button id="serverPower"></button>
+        <div id="server" class="invisiblex">
             <img src="src/server.png">
+            <button id="serverPower"></button>
             <h1>a server</h1>
         </div>
         <div id="page">
@@ -29,10 +27,10 @@
             <div id="content">
                 <div class="header">
                     <h1 class="carter-one red">Take Me Apart!
-                        <div class="bit-tray">
+                        <span class="bit-tray">
                             <span class="bit css">2</span>
                             <span class="bit html">1</span>
-                        </div>
+                        </span>
                     </h1>
                     <button id="reload">
                         <i class="fa fa-refresh"></i>
@@ -41,106 +39,188 @@
                 <div class="body">
                     <div class="content-block" id="part1">
                         <h2 class="patua-one red">Who makes websites?
-                            <div class="bit-tray">
+                            <span class="bit-tray">
                                 <span class="bit css">2</span>
                                 <span class="bit html">1</span>
-                            </div>
+                            </span>
                         </h2>
                         <br>
                         <p class="open-sans">
                             Anyone can make a website! All you need is a computer. You could even use your phone. If you learn how to make websites,
                             that makes you a
+                            <span class="bold">Web Developer</span>.
+                            <span class="bit-tray">
+                                <span class="bit css">2</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </p>
-                        <span class="bold open-sans">Web Developer</span>.
                         <br>
                         <br>
                         <p class="open-sans">
                             What's your name?
+                            <span class="bit-tray">
+                                <span class="bit css">1</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </p>
-
-                        <input type="text" id="nameInput" />
+                        <span>
+                            <input type="text" id="nameInput">
+                            <span class="bit-tray">
+                                <span class="bit js">1</span>
+                                <span class="bit html">1</span>
+                            </span>
+                        </span>
                         <button id="next1" class="red-background white rounded darken-on-hover next">
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            <span class="bit-tray">
+                                <span class="bit js">1</span>
+                                <span class="bit css">4</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </button>
                     </div>
-                    <!-- -->
-                    <div class="content-block hidden" id="part2">
-                        <h2 class="patua-one red">How do you make one?</h2>
+                    <div class="content-block hiddenx" id="part2">
+                        <h2 class="patua-one red">How do you make one?
+                            <span class="bit-tray">
+                                <span class="bit css">2</span>
+                                <span class="bit html">1</span>
+                            </span>
+                        </h2>
                         <br>
                         <p class="open-sans">
-                            You write 3 things to make websites.
-                            <code class="bold open-sans orange">HTML</code>,
-                            <code class="bold open-sans blue">CSS</code>, and
-                            <code class="bold open-sans yellow">JavaScript</code> files.
+                            You only need to write 3 kinds of files to make websites:
+                            <span class="bit-tray">
+                                <span class="bit css">1</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </p>
                         <br>
                         <div class="icon-row">
-                            <img class="icon" src="src/html.png">
-                            <img class="icon" src="src/css.png">
-                            <img class="icon" src="src/js.png">
+                            <div>
+                                <img class="icon" src="src/html.png">
+                                <span class="bit-tray">
+                                    <span class="bit html">1</span>
+                                </span>
+                            </div>
+                            <div>
+                                <img class="icon" src="src/css.png">
+                                <span class="bit-tray">
+                                    <span class="bit html">1</span>
+                                </span>
+                            </div>
+                            <div>
+                                <img class="icon" src="src/js.png">
+                                <span class="bit-tray">
+                                    <span class="bit html">1</span>
+                                </span>
+                            </div>
                         </div>
                         <ul>
                             <li class="open-sans">
                                 <code class="bold open-sans orange">HTML</code> is the pieces of a website.
+                                <span class="bit-tray">
+                                    <span class="bit css">3</span>
+                                    <span class="bit html">1</span>
+                                </span>
                             </li>
                             <li class="open-sans">
-                                <code class="bold open-sans blue">CSS</code> changes how they look.
+                                <code id="css" class="bold open-sans blue">CSS</code> changes how they look.
+                                <span class="bit-tray">
+                                    <span class="bit css">3</span>
+                                    <span class="bit html">1</span>
+                                </span>
                             </li>
                             <li class="open-sans">
                                 <code class="bold open-sans yellow">JavaScript</code> makes them do things.
+                                <span class="bit-tray">
+                                    <span class="bit css">3</span>
+                                    <span class="bit html">1</span>
+                                </span>
                             </li>
                         </ul>
-
                         <button id="next2" class="red-background white rounded darken-on-hover next">
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            <span class="bit-tray">
+                                <span class="bit js">1</span>
+                                <span class="bit css">4</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </button>
                     </div>
-                    <!-- -->
-                    <div class="content-block hidden" id="part3">
-                        <h2 class="patua-one red">How do you share them?</h2>
+                    <div class="content-block hiddenx" id="part3">
+                        <h2 class="patua-one red">How do you share them?
+                            <span class="bit-tray">
+                                <span class="bit css">2</span>
+                                <span class="bit html">1</span>
+                            </span>
+                        </h2>
                         <br>
                         <p class="open-sans">
                             When it's done, you can put your website on a
                             <span class="bold">server</span> and give it an
                             <span class="bold">address</span>. Just like your home address helps people find your house, this is how other people
                             can find your website.
+                            <span class="bit-tray">
+                                <span class="bit css">3</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </p>
                         <br>
-                        <img src="src/address.png">
+                        <span>
+                            <img src="src/address.png">
+                            <span class="bit-tray">
+                                <span class="bit html">1</span>
+                            </span>
+                        </span>
                         <button id="next3" class="red-background white rounded darken-on-hover next">
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                            <span class="bit-tray">
+                                <span class="bit js">1</span>
+                                <span class="bit css">4</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </button>
                     </div>
-                    <!-- -->
-                    <div class="content-block hidden" id="part4">
-                        <h2 class="patua-one red">Let's have some fun!</h2>
+                    <div class="content-block hiddenx" id="part4">
+                        <h2 class="patua-one red">Let's have some fun!
+                            <span class="bit-tray">
+                                <span class="bit css">2</span>
+                                <span class="bit html">1</span>
+                            </span>
+                        </h2>
                         <br>
                         <p class="open-sans">
                             Why don't you try taking this website apart to see what's really going on here?
+                            <span class="bit-tray">
+                                <span class="bit css">1</span>
+                                <span class="bit html">1</span>
+                            </span>
                         </p>
-
                     </div>
                 </div>
-                <!-- -->
             </div>
-
         </div>
-        <div id="developer" class="invisible">
+        <div id="developer" class="invisiblex">
             <div class="header">
                 <h1>Web Developer Toolkit</h1>
                 <p id="owner">property of {name}</p>
             </div>
             <fieldset class="codeBucket html">
+                <div class="flex">
+                </div>
                 <legend>HTML</legend>
             </fieldset>
             <fieldset class="codeBucket css">
+                <div class="flex">
+                </div>
                 <legend>CSS</legend>
             </fieldset>
             <fieldset class="codeBucket js">
+                <div class="flex">
+                </div>
                 <legend>JS</legend>
             </fieldset>
         </div>
     </div>
 </body>
-
 </html>

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/smzelek/take-me-apart#readme",
   "dependencies": {
+    "dragula": "^3.7.2",
     "matter-js": "^0.13.0",
     "poly-decomp": "^0.2.1"
   },
