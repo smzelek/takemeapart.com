@@ -1,226 +1,199 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Carter+One|Open+Sans|Patua+One|Press+Start+2P" rel="stylesheet">
-    <script src="https://use.fontawesome.com/5680242bcb.js"></script>
 </head>
+
 <body>
     <div class="container">
-        <div id="server" class="invisiblex">
-            <img src="src/server.png">
-            <button id="serverPower"></button>
-            <h1>a server</h1>
-        </div>
-        <div id="page">
-            <div id="offlineContent" class="hidden">
-                <img src="src/offline.png">
-                <p class="open-sans">
-                    Oops, server turned off. Wouldn't it be great if you could still view this website?
-                    <br>
-                    <br> If a website is set up properly, your browser will save it. That means you can still use it even if
-                    the server turns off or your internet goes out. Cool!
-                    <br>
-                    <br> Learn more at
-                    <a href="http://offlinefirst.org/" target="_blank">http://offlinefirst.org/</a>
-                </p>
-            </div>
-            <div id="content">
-                <div class="header">
-                    <h1 class="carter-one red">Take Me Apart!
-                        <span class="bit-tray">
-                            <span class="bit css">2</span>
-                            <span class="bit html">1</span>
-                        </span>
-                    </h1>
-                    <button id="reload">
-                        <i class="fa fa-refresh"></i>
-                    </button>
+        <div class="inner-content">
+            <div id="server" class="invisible">
+                <div id="server-image">
+                    <h1>a server</h1>
+                    <img src="public/server.png">
+                    <button id="server-power"></button>
                 </div>
-                <div class="body">
-                    <div class="content-block" id="part1">
-                        <h2 class="patua-one red">Who makes websites?
-                            <span class="bit-tray">
-                                <span class="bit css">2</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </h2>
-                        <br>
-                        <p class="open-sans">
-                            Anyone can make a website! All you need is a computer. You could even use your phone. If you learn how to make websites,
-                            that makes you a
-                            <span class="bold">Web Developer</span>.
-                            <span class="bit-tray">
-                                <span class="bit css">2</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </p>
-                        <br>
-                        <br>
-                        <p class="open-sans">
-                            What's your name?
-                            <span class="bit-tray">
-                                <span class="bit css">1</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </p>
-                        <span>
-                            <input type="text" id="nameInput">
-                            <span class="bit-tray">
-                                <span class="bit js">1</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </span>
-                        <button id="next1" class="red-background white rounded darken-on-hover next">
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <span class="bit-tray">
-                                <span class="bit js">1</span>
-                                <span class="bit css">4</span>
-                                <span class="bit html">1</span>
-                            </span>
+            </div>
+            <div id="page" class="cursor-mouse">
+                <div id="offline-content" class="hidden">
+                    <img src="public/offline.png">
+                    <p class="font-simple">
+                        Oops, someone turned the server turned off...
+                    </p>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <p class="font-simple">
+                        Don't worry - this actually happens pretty often as a web developer!
+                    </p>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <p class="font-simple">
+                        Sometimes a server goes offline for maintenance, or due to unexpected issues.
+                    </p>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <p class="font-simple">
+                        Luckily, your website is still there - that's why we write code, so your website can be
+                        recreated
+                        at a moment's notice from the code!
+                    </p>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                    <p class="font-simple">
+                        Try turning the server back on!
+                    </p>
+                    <div style="margin: 10px 0 10px 0;"></div>
+                </div>
+                <div id="content">
+                    <div class="header">
+                        <h1 class="color-red font-fun">
+                            Take Me Apart!
+                        </h1>
+                        <button id="reload" class="js-exempt">
+                            <i class="fa fa-refresh"></i>
                         </button>
                     </div>
-                    <div class="content-block hiddenx" id="part2">
-                        <h2 class="patua-one red">How do you make one?
-                            <span class="bit-tray">
-                                <span class="bit css">2</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </h2>
-                        <br>
-                        <p class="open-sans">
-                            You only need to write 3 kinds of files to make websites:
-                            <span class="bit-tray">
-                                <span class="bit css">1</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </p>
-                        <br>
-                        <div class="icon-row">
-                            <div>
-                                <img class="icon" src="src/html.png">
-                                <span class="bit-tray">
-                                    <span class="bit html">1</span>
-                                </span>
-                            </div>
-                            <div>
-                                <img class="icon" src="src/css.png">
-                                <span class="bit-tray">
-                                    <span class="bit html">1</span>
-                                </span>
-                            </div>
-                            <div>
-                                <img class="icon" src="src/js.png">
-                                <span class="bit-tray">
-                                    <span class="bit html">1</span>
-                                </span>
+                    <div class="body">
+                        <div class="content-block">
+                            <h2 class="color-red font-formal">Who makes websites?
+                            </h2>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <p class="font-simple">
+                                Anyone can make a website! All you need is a computer. You could even use your phone. If
+                                you learn how to make websites,
+                                that makes you a
+                                <span class="italic">Web Developer</span>.
+                            </p>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <p class="font-simple">
+                                What's your name?
+                            </p>
+                            <input type="text" id="name-input" class="js-irremovable">
+                            <div class="button-tray">
+                                <button id="next1" class="darken-on-hover rounded-corners background-red next">
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
-                        <ul>
-                            <li class="open-sans">
-                                <code class="bold open-sans orange">HTML</code> is the pieces of a website.
-                                <span class="bit-tray">
-                                    <span class="bit css">3</span>
-                                    <span class="bit html">1</span>
-                                </span>
-                            </li>
-                            <li class="open-sans">
-                                <code id="css" class="bold open-sans blue">CSS</code> changes how they look.
-                                <span class="bit-tray">
-                                    <span class="bit css">3</span>
-                                    <span class="bit html">1</span>
-                                </span>
-                            </li>
-                            <li class="open-sans">
-                                <code class="bold open-sans yellow">JavaScript</code> makes them do things.
-                                <span class="bit-tray">
-                                    <span class="bit css">3</span>
-                                    <span class="bit html">1</span>
-                                </span>
-                            </li>
-                        </ul>
-                        <button id="next2" class="red-background white rounded darken-on-hover next">
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <span class="bit-tray">
-                                <span class="bit js">1</span>
-                                <span class="bit css">4</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </button>
+                        <div class="content-block">
+                            <h2 class="color-red font-formal part2">How do you make one?
+                            </h2>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <p class="font-simple part2">
+                                You only need to write 3 kinds of files to make websites:
+                            </p>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <ul>
+                                <li class="font-simple part2">
+                                    HTML is the pieces of a website.
+                                </li>
+                                <li class="color-blue italic font-simple part2">
+                                    CSS changes how things look.
+                                </li>
+                                <li class="font-simple part2">
+                                    JavaScript does things! <button id="js-initial-fn"
+                                        class="darken-on-hover rounded-corners background-red font-fun js-bounce">click
+                                        me</button>
+                                </li>
+                            </ul>
+                            <div class="icon-row">
+                                <img class="icon part2" src="public/html.png">
+                                <img class="icon part2" src="public/css.png">
+                                <img class="icon part2" src="public/js.png">
+                            </div>
+                            <div class="button-tray">
+                                <button id="next2" class="darken-on-hover rounded-corners background-red next part2">
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h2 class="color-red font-formal part3">How do you share them?
+                            </h2>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <p class="font-simple part3">
+                                When it's done, you can put your website on a
+                                <span class="italic">server</span> and give it an
+                                <span class="italic">address</span>. Just like your home address helps people find your
+                                house, this is how other people
+                                can find your website.
+                            </p>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <img class="part3" src="public/address.png">
+                            <div class="button-tray">
+                                <button id="next3" class="darken-on-hover rounded-corners background-red next part3">
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="content-block">
+                            <h2 class="color-red font-formal part4">Let's have some fun!
+                            </h2>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <p class="font-simple part4">
+                                Why don't you try taking this website apart to see what's really going on here?
+                            </p>
+                            <div style="margin: 10px 0 10px 0;"></div>
+                            <p class="font-simple part4">
+                                Let's use a wrench to take apart the HTML, CSS, and JavaScript on the page; then you can
+                                combine it however you want!
+                            </p>
+                            <div class="button-tray">
+                                <button id="next4" class="darken-on-hover rounded-corners background-red next part4">
+                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="content-block hiddenx" id="part3">
-                        <h2 class="patua-one red">How do you share them?
-                            <span class="bit-tray">
-                                <span class="bit css">2</span>
-                                <span class="bit html">1</span>
-                            </span>
+                    <div id="footer">
+                        <h2 class="color-red font-formal part5">
+                            Nice work so far!
                         </h2>
-                        <br>
-                        <p class="open-sans">
-                            When it's done, you can put your website on a
-                            <span class="bold">server</span> and give it an
-                            <span class="bold">address</span>. Just like your home address helps people find your house, this is how other people
-                            can find your website.
-                            <span class="bit-tray">
-                                <span class="bit css">3</span>
-                                <span class="bit html">1</span>
-                            </span>
+                        <p class="font-simple part5">
+                            Now, let's add some new things to your toolkit...
                         </p>
-                        <br>
-                        <span>
-                            <img src="src/address.png">
-                            <span class="bit-tray">
-                                <span class="bit html">1</span>
-                            </span>
-                        </span>
-                        <button id="next3" class="red-background white rounded darken-on-hover next">
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                            <span class="bit-tray">
-                                <span class="bit js">1</span>
-                                <span class="bit css">4</span>
-                                <span class="bit html">1</span>
-                            </span>
+                        <button id="next5"
+                            class="darken-on-hover rounded-corners font-fun background-red next part5 no-smash">
+                            add more fun
                         </button>
-                    </div>
-                    <div class="content-block hiddenx" id="part4">
-                        <h2 class="patua-one red">Let's have some fun!
-                            <span class="bit-tray">
-                                <span class="bit css">2</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </h2>
-                        <br>
-                        <p class="open-sans">
-                            Why don't you try taking this website apart to see what's really going on here?
-                            <span class="bit-tray">
-                                <span class="bit css">1</span>
-                                <span class="bit html">1</span>
-                            </span>
-                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="developer" class="invisiblex">
-            <div class="header">
-                <h1>Web Developer Toolkit</h1>
-                <p id="owner">property of {name}</p>
+            <div id="developer" class="invisible">
+                <div class="header">
+                    <h1>Web Developer Toolkit</h1>
+                    <p id="owner">property of {name}</p>
+                </div>
+                <fieldset class="code-group html">
+                    <div class="code-bits" id="html-bits">
+                    </div>
+                    <legend>HTML</legend>
+                </fieldset>
+                <fieldset class="code-group css">
+                    <div class="code-bits" id="css-bits">
+                    </div>
+                    <legend>CSS</legend>
+                </fieldset>
+                <fieldset class="code-group js">
+                    <div class="code-bits" id="js-bits">
+                    </div>
+                    <legend>JavaScript</legend>
+                </fieldset>
+                <div id="cursor-changers" class="invisible">
+                    <div id="mouse" class="inactive">
+                        <button class="cursor-change">
+                        </button>
+                        cursor
+                    </div>
+                    <div id="wrench">
+                        <button class="cursor-change">
+                        </button>
+                        wrench
+                    </div>
+                </div>
             </div>
-            <fieldset class="codeBucket html">
-                <div class="flex">
-                </div>
-                <legend>HTML</legend>
-            </fieldset>
-            <fieldset class="codeBucket css">
-                <div class="flex">
-                </div>
-                <legend>CSS</legend>
-            </fieldset>
-            <fieldset class="codeBucket js">
-                <div class="flex">
-                </div>
-                <legend>JS</legend>
-            </fieldset>
         </div>
     </div>
 </body>
+
 </html>

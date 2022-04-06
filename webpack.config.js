@@ -5,17 +5,26 @@ const path = require('path');
 const config = {
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.bundle.js'
+    path: path.resolve(__dirname, 'public'),
+    filename: 'app.js',
+    publicPath: '/',
+  },
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+      publicPath: '/public'
+    },
   },
   module: {
     rules: [
-        { test: /\.scss$/, loader: 'style-loader!css-loader!sass-loader'} 
+        { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader']} 
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({template: './src/index.html'})
-  ]
+  ],
+  mode: 'development',
+  devtool: 'inline-source-map',
 };
 
 module.exports = config;
