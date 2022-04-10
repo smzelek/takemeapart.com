@@ -90,6 +90,12 @@ var dropY = 0;
 var mouseInsideContent = false;
 var dragBitKind = '';
 var dragImage;
+var hideDragImage = document.createElement("img");
+hideDragImage.style.position = "fixed";
+hideDragImage.style.top = "0px";
+hideDragImage.style.left = "100%";
+hideDragImage.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+document.body.appendChild(hideDragImage);
 
 var tryToUnlockPart5 = () => {
     if (numCodeBitsSmashed >= 5 && numCodeBitsApplied >= 3) {
@@ -273,7 +279,7 @@ var createCssBit = (atom) => {
     newBit.classList.add('bit');
     newBit.classList.add('css');
     newBit.innerText = `.${atom}`;
-    newBit.id = key;    
+    newBit.id = key;
 
     // @ts-expect-error
     newBit.setAttribute('draggable', true);
@@ -302,7 +308,7 @@ var createCssBit = (atom) => {
 
     document.getElementById('css-bits').appendChild(newBit);
     document.getElementById('css-bits').scrollTop = document.getElementById('css-bits').scrollHeight;
-    
+
     setTimeout(() => {
         newBit.classList.add('animate-new-bit');
     }, 50);
@@ -360,19 +366,20 @@ var createHtmlBit = (el) => {
     freedEl.id = id;
 
     freedEl.style.pointerEvents = 'none';
-    freedEl.style.position = "fixed"; 
-    freedEl.style.top = "0px"; 
+    freedEl.style.position = "fixed";
+    freedEl.style.top = "0px";
     freedEl.style.left = "100%";
     document.getElementById('content').appendChild(freedEl);
 
     var dragBit = document.createElement("img");
-    dragBit.style.position = "fixed"; 
-    dragBit.style.top = "0px"; 
+    dragBit.style.position = "fixed";
+    dragBit.style.top = "0px";
     dragBit.style.left = "100%";
     document.getElementById('content').appendChild(dragBit);
 
     html2canvas(freedEl, {
         backgroundColor: null,
+        scale: 1,
     }).then((canvas) => {
         dragBit.src = canvas.toDataURL();
     });
@@ -380,18 +387,17 @@ var createHtmlBit = (el) => {
     // @ts-expect-error
     newBit.setAttribute('draggable', true);
     newBit.addEventListener('dragstart', (e) => {
+        mouseInsideContent = false;
         dragBitKind = 'html';
         newBit.style.opacity = '0.5';
-        var hideDragImage = document.createElement("img");
-        hideDragImage.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
         e.dataTransfer.setDragImage(hideDragImage, 0, 0);
         dragImage = dragBit;
     });
     newBit.addEventListener('dragend', (e) => {
         newBit.style.opacity = '1';
         if (!mouseInsideContent) {
-            dragBit.style.top = "0px"; 
-            dragBit.style.left = "100%";
+            dragImage.style.top = "0px";
+            dragImage.style.left = "100%";
             return;
         }
         newBit.remove();
@@ -409,7 +415,7 @@ var createHtmlBit = (el) => {
 
     document.getElementById('html-bits').appendChild(newBit);
     document.getElementById('html-bits').scrollTop = document.getElementById('html-bits').scrollHeight;
-    
+
     setTimeout(() => {
         newBit.classList.add('animate-new-bit');
     }, 50);
@@ -427,7 +433,7 @@ var cloneElement = (el) => {
     freedEl.value = el.value;
     freedEl.src = el.src;
     Array.from(el.classList).forEach(cls => freedEl.classList.add(cls));
-    
+
     if (['p', 'li', 'img'].includes(freedEl.tagName.toLowerCase())) {
         freedEl.style.width = `${width}px`;
     } else {
@@ -498,7 +504,7 @@ var createJsBit = (jsId, jsFn) => {
 
     document.getElementById('js-bits').appendChild(newBit);
     document.getElementById('js-bits').scrollTop = document.getElementById('js-bits').scrollHeight;
-    
+
     setTimeout(() => {
         newBit.classList.add('animate-new-bit');
     }, 50);
@@ -588,10 +594,10 @@ var main = () => {
         if (dragBitKind !== 'html') {
             return;
         }
-        var { x: originX, y: originY } = document.getElementById('content').getBoundingClientRect(); 
-        var { width, height } = dragImage.getBoundingClientRect(); 
-        dropX = e.clientX - originX - width/2;
-        dropY = e.clientY - originY - height/2;
+        var { x: originX, y: originY } = document.getElementById('content').getBoundingClientRect();
+        var { width, height } = dragImage.getBoundingClientRect();
+        dropX = e.clientX - originX - width / 2;
+        dropY = e.clientY - originY - height / 2;
         dragImage.style.top = `${dropY}px`;
         dragImage.style.left = `${dropX}px`;
     });
