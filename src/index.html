@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <link rel="stylesheet" type="text/scss" href="./styles.scss">
 </head>
 
 <body>
@@ -10,13 +11,13 @@
             <div id="server" class="invisible">
                 <div id="server-image">
                     <h1>a server</h1>
-                    <img src="public/server.png">
+                    <img loading="lazy" src="assets/server.png">
                     <button id="server-power"></button>
                 </div>
             </div>
             <div id="page" class="cursor-mouse">
                 <div id="offline-content" class="hidden">
-                    <img src="public/offline.png">
+                    <img loading="lazy" src="assets/offline.png">
                     <p class="font-simple">
                         Oops, someone turned the server turned off...
                     </p>
@@ -90,16 +91,18 @@
                                 <li class="color-blue italic font-simple part2">
                                     CSS changes how things look.
                                 </li>
-                                <li class="font-simple part2">
-                                    JavaScript does things! <button id="js-initial-fn"
-                                        class="darken-on-hover rounded-corners background-red font-fun js-bounce">click
-                                        me</button>
+                                <li class="font-simple part2" style="float: left;">
+                                    JavaScript does things!
                                 </li>
+                                <button style="float: left; margin-left: 10px;"
+                                    class="part2 darken-on-hover rounded-corners background-red font-fun js-bounce">
+                                    click me
+                                </button>
                             </ul>
                             <div class="icon-row">
-                                <img class="icon part2" src="public/html.png">
-                                <img class="icon part2" src="public/css.png">
-                                <img class="icon part2" src="public/js.png">
+                                <img class="icon part2" loading="lazy" src="assets/html.png">
+                                <img class="icon part2" loading="lazy" src="assets/css.png">
+                                <img class="icon part2" loading="lazy" src="assets/js.png">
                             </div>
                             <div class="button-tray">
                                 <button id="next2" class="darken-on-hover rounded-corners background-red next part2">
@@ -119,7 +122,7 @@
                                 can find your website.
                             </p>
                             <div style="margin: 10px 0 10px 0;"></div>
-                            <img class="part3" src="public/address.png">
+                            <img class="part3" loading="lazy" src="assets/address.png">
                             <div class="button-tray">
                                 <button id="next3" class="darken-on-hover rounded-corners background-red next part3">
                                     <i class="fa fa-long-arrow-right" aria-hidden="true"></i>

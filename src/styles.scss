@@ -5,27 +5,27 @@ $terminal: #4ff633;
 
 @font-face {
     font-family: 'FontAwesome';
-    src: url('/public/FontAwesome.woff2') format('woff2');
+    src: url('/assets/FontAwesome.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Patua One';
-    src: url('/public/PatuaOne.woff2') format('woff2');
+    src: url('/assets/PatuaOne.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Carter One';
-    src: url('/public/CarterOne.woff2') format('woff2');
+    src: url('/assets/CarterOne.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Open Sans';
-    src: url('/public/OpenSans.woff2') format('woff2');
+    src: url('/assets/OpenSans.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Press Start 2P';
-    src: url('/public/PressStart2P.woff2') format('woff2');
+    src: url('/assets/PressStart2P.woff2') format('woff2');
 }
 
 .fa {
@@ -261,6 +261,7 @@ button {
     cursor: pointer;
     background: gray;
     color: white;
+    border: 0;
 }
 
 h1,
@@ -401,7 +402,7 @@ body {
         position: relative;
 
         &.cursor-wrench {
-            cursor: url("/public/wrench2.png"), auto;
+            cursor: url("/assets/wrench.png"), auto;
 
             input {
                 cursor: not-allowed;
@@ -504,7 +505,6 @@ body {
                 justify-content: center;
                 align-items: center;
                 font-size: 2.5rem;
-                border: none;
                 overflow: hidden;
 
                 &:hover {
@@ -553,10 +553,6 @@ body {
                     p {
                         margin: 0;
                         display: inline;
-                    }
-
-                    #js-initial-fn {
-                        border: 0;
                     }
 
                     .button-tray {
@@ -620,13 +616,13 @@ body {
 
         #wrench {
             > button {
-                background-image: url("/public/wrench-128.png");
+                background-image: url("/assets/wrench-128.png");
             }
         }
 
         #mouse {
             > button {
-                background-image: url("/public/mouse-128.png");
+                background-image: url("/assets/mouse-128.png");
             }
         }
 

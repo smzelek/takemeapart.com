@@ -1,6 +1,3 @@
-import './styles.scss';
-import html2canvas from 'html2canvas';
-
 var showedPart5 = false;
 var hasEnabledCursors = false;
 var serverOn = true;
@@ -89,7 +86,7 @@ var dropX = 0;
 var dropY = 0;
 var mouseInsideContent = false;
 var dragBitKind = '';
-var dragImage;
+var dragEl;
 var hideDragImage = document.createElement("img");
 hideDragImage.style.position = "fixed";
 hideDragImage.style.top = "0px";
@@ -357,32 +354,14 @@ var createHtmlBit = (el) => {
     var newBit = document.createElement('div');
     newBit.classList.add('bit');
     newBit.classList.add('html');
-
-    var id = `${Date.now()}`;
-    newBit.id = id;
     newBit.innerText = getHtmlInnerText(el);
 
     var freedEl = cloneElement(el);
-    freedEl.id = id;
-
     freedEl.style.pointerEvents = 'none';
     freedEl.style.position = "fixed";
     freedEl.style.top = "0px";
     freedEl.style.left = "100%";
     document.getElementById('content').appendChild(freedEl);
-
-    var dragBit = document.createElement("img");
-    dragBit.style.position = "fixed";
-    dragBit.style.top = "0px";
-    dragBit.style.left = "100%";
-    document.getElementById('content').appendChild(dragBit);
-
-    html2canvas(freedEl, {
-        backgroundColor: null,
-        scale: 1,
-    }).then((canvas) => {
-        dragBit.src = canvas.toDataURL();
-    });
 
     // @ts-expect-error
     newBit.setAttribute('draggable', true);
@@ -391,22 +370,21 @@ var createHtmlBit = (el) => {
         dragBitKind = 'html';
         newBit.style.opacity = '0.5';
         e.dataTransfer.setDragImage(hideDragImage, 0, 0);
-        dragImage = dragBit;
+        dragEl = freedEl;
     });
     newBit.addEventListener('dragend', (e) => {
         newBit.style.opacity = '1';
         if (!mouseInsideContent) {
-            dragImage.style.top = "0px";
-            dragImage.style.left = "100%";
+            dragEl.style.top = "0px";
+            dragEl.style.left = "100%";
             return;
         }
         newBit.remove();
-        dragImage.remove();
+        dragEl = null;
 
         freedEl.style.top = `${dropY}px`;
         freedEl.style.left = `${dropX}px`;
         freedEl.style.pointerEvents = 'auto';
-        freedEl.id = '';
 
         makeElementEditable(freedEl);
         numCodeBitsApplied++;
@@ -588,18 +566,18 @@ var main = () => {
     document.getElementById('next3').addEventListener('click', clickNext3);
     document.getElementById('next4').addEventListener('click', clickNext4);
     document.getElementById('next5').addEventListener('click', clickNext5);
-    document.getElementById('js-initial-fn').addEventListener(jsRegistry['js-bounce'].event, jsRegistry['js-bounce'].fn)
+    document.getElementsByClassName('js-bounce')[0].addEventListener(jsRegistry['js-bounce'].event, jsRegistry['js-bounce'].fn)
     document.getElementById('name-input').addEventListener('keypress', keypressNameInput);
     document.addEventListener('dragover', (e) => {
         if (dragBitKind !== 'html') {
             return;
         }
         var { x: originX, y: originY } = document.getElementById('content').getBoundingClientRect();
-        var { width, height } = dragImage.getBoundingClientRect();
+        var { width, height } = dragEl.getBoundingClientRect();
         dropX = e.clientX - originX - width / 2;
         dropY = e.clientY - originY - height / 2;
-        dragImage.style.top = `${dropY}px`;
-        dragImage.style.left = `${dropX}px`;
+        dragEl.style.top = `${dropY}px`;
+        dragEl.style.left = `${dropX}px`;
     });
     document.getElementById('content').addEventListener('dragover', (e) => {
         e.preventDefault();
