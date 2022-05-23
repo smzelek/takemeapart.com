@@ -1,3 +1,5 @@
+import './styles.scss';
+
 var showedPart5 = false;
 var hasEnabledCursors = false;
 var serverOn = true;

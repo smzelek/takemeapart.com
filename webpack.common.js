@@ -4,9 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin').default;
 
 module.exports = {
-    entry: ["./src/index.js", "./src/styles.scss"],
+    entry: ["./src/index.js"],
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: '[name].js',
@@ -15,14 +17,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.scss$/, use: [
-                    {
-                        loader: 'style-loader',
-                        options: {
-                            insert: 'head', // insert style tag inside of <head>
-                            injectType: 'singletonStyleTag' // this is for wrap all your style in just one style tag
-                        },
-                    },
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
@@ -30,7 +27,12 @@ module.exports = {
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        }),
         new HtmlWebpackPlugin({ template: './src/index.html' }),
+        new HTMLInlineCSSWebpackPlugin(),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
