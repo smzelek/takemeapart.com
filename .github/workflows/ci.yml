@@ -47,5 +47,6 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Deploy Build
         run: |
-          zip -r build.zip public
+          cd public/
+          zip -r build.zip .
           aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}.zip
