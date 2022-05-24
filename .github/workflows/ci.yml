@@ -48,4 +48,4 @@ jobs:
       - name: Deploy Build
         run: |
           zip -r build.zip public
-          aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}
+          aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}.zip
