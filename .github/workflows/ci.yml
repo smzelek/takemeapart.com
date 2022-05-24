@@ -50,3 +50,4 @@ jobs:
           cd public/
           zip -r build.zip .
           aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}.zip --content-type "application/zip; charset=utf-8"
+          aws amplify start-deployment --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name prod --source-url https://take-me-apart.s3.${{ secrets.AWS_REGION }}.amazonaws.com/${{ github.sha }}.zip
