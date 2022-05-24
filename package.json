@@ -1,8 +1,12 @@
 {
   "name": "take-me-apart",
   "version": "1.0.0",
-  "description": "A fun way for beginners or children to visualize web development.",
+  "description": "A fun way for beginners, or even children to visualize web development.",
   "main": "null",
+  "engines": {
+    "node": "^16",
+    "npm": "^8"
+  },
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
