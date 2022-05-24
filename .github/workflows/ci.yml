@@ -46,4 +46,4 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE }}
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Deploy Build
-        run: aws s3 cp public s3://take-me-apart
+        run: aws s3 cp public/ s3://take-me-apart/${{ github.sha }}
