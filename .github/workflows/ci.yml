@@ -49,4 +49,4 @@ jobs:
         run: |
           cd public/
           zip -r build.zip .
-          aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}.zip
+          aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}.zip --content-type "application/zip; charset=utf-8"
