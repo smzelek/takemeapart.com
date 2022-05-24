@@ -20,6 +20,8 @@ jobs:
         run: npm ci
 
   build:
+    env:
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
     needs: install
     runs-on: ubuntu-latest
     permissions:
