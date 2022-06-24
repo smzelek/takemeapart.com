@@ -593,10 +593,3 @@ var main = () => {
 };
 
 main();
-
-// TODO:
-// * support HTML bits
-//
-// Nice to haves:
-// * add nice animations to things like the "put me together!" title sliding in, etc.
-// * add sound effects.
