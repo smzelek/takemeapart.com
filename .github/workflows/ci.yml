@@ -1,9 +1,17 @@
-name: CI
+name: Deploy
 
 on:
   push:
     branches:
       - main
+
+env:
+  AWS_ACCOUNT_ID: 590184101838
+  AWS_REGION: us-east-1
+  AWS_APP: takemeapart-com
+  NODE_VERSION: 16
+  BUILD_DIR: public/
+  CLOUDFLARE_ZONE: 60455d173193e9b8bc95532e3bcf8c34
 
 jobs:
   install:
@@ -14,15 +22,13 @@ jobs:
       - name: Cache NPM
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - name: Install
         run: npm ci
 
-  build:
-    env:
-      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-    needs: install
+  deploy-app:
+    needs: [install]
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -33,22 +39,27 @@ jobs:
       - name: Cache NPM
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - name: Install
         run: npm ci
       - name: Build
-        run: npm run build
+        run: npm run build:app
         timeout-minutes: 5
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/${{ env.AWS_APP }}-github-role
+          aws-region: ${{ env.AWS_REGION }}
+          mask-aws-account-id: 'no'
       - name: Deploy Build
         run: |
-          cd public/
-          zip -r build.zip .
-          aws s3 cp build.zip s3://take-me-apart/${{ github.sha }}.zip --content-type "application/zip; charset=utf-8"
-          URL=$(aws s3 presign s3://take-me-apart/${{ github.sha }}.zip)
-          aws amplify start-deployment --app-id ${{ secrets.AWS_AMPLIFY_APP_ID }} --branch-name prod --source-url $URL
+          cd ${{ env.BUILD_DIR }}
+          aws s3 cp . s3://${{ env.AWS_APP }} --recursive
+      - name: Purge Cloudflare Cache
+        run: |
+          curl -fsSL "https://api.cloudflare.com/client/v4/zones/${{ env.CLOUDFLARE_ZONE }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything": true}' \
+            --fail --show-error
+        shell: bash
